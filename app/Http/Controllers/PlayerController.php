@@ -10,7 +10,7 @@ class PlayerController extends Controller
 {
     public function index(): View
     {
-        $players = User::where('id', '!=', auth()->id())->get();
+        $players = User::where('id', '!=', auth()->id())->latest()->paginate(10);
 
         return view('players.index', ['players' => $players]);
     }
