@@ -1,6 +1,10 @@
 <x-layouts::app :title="__('Players')">
-    <div class="max-w-4xl mx-auto py-10 px-4">
+    <div class="fixed inset-0 z-0 pointer-events-none bg-slate-50">
+        <div class="absolute top-0 right-0 w-1/2 rounded-full h-1/2 bg-blue-100/40 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 rounded-full h-1/2 bg-purple-100/30 blur-3xl"></div>
+    </div>
 
+    <div class="relative z-10 px-4 py-12 mx-auto max-w-6xl">
         <div class="mb-6">
             <flux:button variant="ghost" size="sm" :href="route('players.index')" icon="arrow-left" class="text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors">
                 Back to players
@@ -11,7 +15,7 @@
             Notas del Jugador
         </div>
 
-        <div class="bg-white rounded-[2rem] p-6 flex items-center justify-between shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 mb-8">
+        <div class="p-3 mb-5 border shadow-2xl sm:p-3 border-white/60 bg-white/60 backdrop-blur-2xl rounded-3xl shadow-slate-200/50">
             <div class="flex items-center space-x-5">
                 <div class="relative">
                     <img 
@@ -27,6 +31,14 @@
                     <p class="text-sm text-slate-500 flex items-center gap-2 mt-0.5">
                         <span>{{ $player->email }}</span> 
                     </p>
+
+                    
+                </div>
+
+                <div class="flex space-x-3 text-sm font-medium ml-auto">
+                    <span class="px-4 py-2 bg-indigo-50/80 text-[#4F46E5] rounded-full border border-indigo-100/50 shadow-sm">
+                        5 Notas
+                    </span>
                 </div>
             </div>
         </div>

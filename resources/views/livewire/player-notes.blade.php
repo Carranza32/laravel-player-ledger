@@ -1,30 +1,40 @@
 <div class="relative pb-8" x-data="{ content: @entangle('form.content') }">
-    <div class="space-y-5">
+    <div class="space-y-6">
         @forelse($notes as $note)
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+            <div class="bg-white rounded-[2rem] p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 mt-3">
                 <div class="flex justify-between items-center mb-4">
-                    <div class="flex items-center space-x-2 text-indigo-700 font-semibold text-sm">
-                        <div class="w-7 h-7 bg-indigo-100 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <div class="flex items-center space-x-3 text-[#4F46E5] font-semibold text-sm">
+                        <div class="w-8 h-8 bg-indigo-50/80 border border-indigo-100/50 rounded-full flex items-center justify-center shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
                         </div>
                         <span>Agente: {{ $note->author->name }}</span>
                     </div>
-                    <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">
+                    
+                    <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">
                         {{ $note->created_at->format('M d, g:i A') }}
                     </div>
                 </div>
                 
-                <p class="text-slate-600 mb-5 leading-relaxed">
+                <p class="text-slate-600 mb-5 leading-relaxed px-1">
                     {{ $note->content }}
                 </p>
-
-                <div class="flex space-x-2">
-                    <span class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-semibold">Nota</span>
+                <div class="flex space-x-2 px-1">
+                    <span class="px-4 py-1.5 bg-slate-50 text-slate-600 rounded-full text-xs font-semibold border border-slate-200/50 shadow-sm">
+                        Nota
+                    </span>
                 </div>
             </div>
         @empty
-            <div class="text-center text-slate-400 py-6">
-                No hay notas registradas para este jugador.
+            <div class="bg-white rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 flex flex-col items-center justify-center py-16 px-6 text-center">
+                <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4 border border-slate-100">
+                    <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-700 mb-1">Sin notas</h3>
+                <p class="text-sm text-slate-400">No hay notas registradas para este jugador todavía.</p>
             </div>
         @endforelse
     </div>
