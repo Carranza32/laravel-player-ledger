@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('player_notes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('player_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('author_id')->constrained('users')->cascadeOnDelete();
+            $table->text('content');
+
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
+            $table->foreignId('deleted_by')->nullable()->constrained('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
