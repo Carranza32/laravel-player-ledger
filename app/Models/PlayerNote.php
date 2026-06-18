@@ -13,10 +13,6 @@ class PlayerNote extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
-        'is_active' => 'boolean',
-    ];
-
     public function player(): BelongsTo
     {
         return $this->belongsTo(User::class, 'player_id');
