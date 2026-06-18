@@ -15,22 +15,6 @@
                         Selecciona un perfil para gestionar su historial y notas de soporte.
                     </flux:subheading>
                 </div>
-
-                <div class="w-full md:w-72">
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                        <input 
-                            wire:model.live="search" 
-                            type="text" 
-                            class="block w-full py-2.5 pl-10 pr-4 text-sm transition-colors border bg-white/80 border-slate-200 text-slate-800 rounded-xl focus:ring-blue-500 focus:border-blue-500 shadow-sm outline-none" 
-                            placeholder="Buscar por nombre o correo..."
-                        >
-                    </div>
-                </div>
             </div>
 
             <flux:table>
