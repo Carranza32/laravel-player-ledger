@@ -8,9 +8,12 @@ use App\Models\User;
 use App\Repositories\Contracts\PlayerNoteRepositoryInterface;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Flux\Flux;
+use Livewire\Attributes\On; 
 
 class PlayerNotes extends Component
 {
+    public bool $showSuccessToast = false;
     public PlayerNoteForm $form;
     public Collection $notes;
     public int $playerId;
@@ -36,22 +39,17 @@ class PlayerNotes extends Component
             content:  $this->form->content,
         ));
 
-        $this->dispatch('note-saved', noteId: $note->id);
-        
         $this->loadNotes();
         $this->form->reset('content');
+        
+        Flux::toast(variant: 'success', text: 'Nota guardada exitosamente.');
+        $this->dispatch('note-saved');
     }
 
     private function loadNotes(): void
     {
         $repository = app(PlayerNoteRepositoryInterface::class);
         $this->notes = $repository->getByPlayer($this->playerId);
-    }
-
-    #[On('note-saved')]
-    public function onNoteSaved(int $noteId): void
-    {
-        //TODO:: Mostrar un toast para notificar
     }
 
     public function render()

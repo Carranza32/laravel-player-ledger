@@ -9,5 +9,6 @@ use Illuminate\Support\Collection;
 interface PlayerNoteRepositoryInterface
 {
     public function getByPlayer(int $playerId): Collection;
+    public function countByPlayer(int $playerId): int;
     public function create(CreatePlayerNoteDTO $dto): PlayerNote;
 }

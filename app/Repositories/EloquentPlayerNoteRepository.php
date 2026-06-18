@@ -18,6 +18,11 @@ class EloquentPlayerNoteRepository implements PlayerNoteRepositoryInterface
             ->get();
     }
 
+    public function countByPlayer(int $playerId): int
+    {
+        return PlayerNote::where('player_id', $playerId)->count();
+    }
+
     public function create(CreatePlayerNoteDTO $dto): PlayerNote
     {
         return PlayerNote::create([

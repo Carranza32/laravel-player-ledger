@@ -7,6 +7,6 @@ use Livewire\Form;
 
 class PlayerNoteForm extends Form
 {
-    #[Validate('required|string|max:500')]
+    #[Validate('required|string|max:200')]
     public string $content = '';
 }

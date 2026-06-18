@@ -15,7 +15,7 @@
             Notas del Jugador
         </div>
 
-        <div class="p-3 mb-5 border shadow-2xl sm:p-3 border-white/60 bg-white/60 backdrop-blur-2xl rounded-3xl shadow-slate-200/50">
+        <div class="p-3 mb-5 border shadow-2xl sm:p-3 border-white/60 bg-white/60 backdrop-blur-2xl rounded-3xl shadow-slate-200/50 sticky">
             <div class="flex items-center space-x-5">
                 <div class="relative">
                     <img 
@@ -36,9 +36,7 @@
                 </div>
 
                 <div class="flex space-x-3 text-sm font-medium ml-auto">
-                    <span class="px-4 py-2 bg-indigo-50/80 text-[#4F46E5] rounded-full border border-indigo-100/50 shadow-sm">
-                        5 Notas
-                    </span>
+                    <livewire:player-note-count :player-id="$player->id" />
                 </div>
             </div>
         </div>
